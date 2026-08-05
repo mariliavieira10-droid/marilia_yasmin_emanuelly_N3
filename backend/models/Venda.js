@@ -1,22 +1,22 @@
 export default class Venda {
-  constructor(
-    id,
-    cliente,
-    formaPagamento,
-    tipoVenda
-  ) {
+  constructor(id, cliente, formaPagamento, tipoVenda) {
     this.id = id;
+
     this.cliente = cliente;
+
     this.formaPagamento = formaPagamento;
+
     this.tipoVenda = tipoVenda;
+
     this.produtos = [];
+
     this.total = 0;
   }
 
   adicionarProduto(produto, quantidade) {
     this.produtos.push({
       produto,
-      quantidade
+      quantidade,
     });
 
     if (produto.tipoVenda === "quilo") {
