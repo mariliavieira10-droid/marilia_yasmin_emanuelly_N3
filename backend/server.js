@@ -1,36 +1,42 @@
-import express from "express";
-import cors from "cors";
+import express from 'express';
+import cors from 'cors';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-import produtoRoutes from "./routes/produtoRoutes.js";
-import clienteRoutes from "./routes/clienteRoutes.js";
-import categoriaRoutes from "./routes/categoriaRoutes.js";
-import funcionariosRoutes from "./routes/funcionarioRoutes.js";
-import lojaRoutes from "./routes/lojaRoutes.js";
-import vendaRoutes from "./routes/vendaRoutes.js";
-import loginRoutes from "./routes/loginRoutes.js";
+import produtoRoutes from './routes/produtoRoutes.js';
+import clienteRoutes from './routes/clienteRoutes.js';
+import vendaRoutes from './routes/vendaRoutes.js';
+import categoriaRoutes from './routes/categoriaRoutes.js';
+import funcionarioRoutes from './routes/funcionarioRoutes.js';
+import lojaRoutes from './routes/lojaRoutes.js';
+import loginRoutes from './routes/loginRoutes.js';
 
 const app = express();
 
 app.use(cors());
-
 app.use(express.json());
 
-app.use("/produtos", produtoRoutes);
-app.use("/clientes", clienteRoutes);
-app.use("/categorias", categoriaRoutes);
-app.use("/funcionarios", funcionariosRoutes);
-app.use("/lojas", lojaRoutes);
-app.use("/vendas", vendaRoutes);
-app.use("/login", loginRoutes);
+// Rotas da API
+app.use('/produtos', produtoRoutes);
+app.use('/clientes', clienteRoutes);
+app.use('/vendas', vendaRoutes);
+app.use('/categorias', categoriaRoutes);
+app.use('/funcionarios', funcionarioRoutes);
+app.use('/lojas', lojaRoutes);
+app.use('/login', loginRoutes);
 
-app.get("/", (req, res) => {
-    res.json({
-        mensagem: "API Naturale funcionando!"
-    });
+// Caminho do frontend
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Serve a pasta frontend
+app.use(express.static(path.join(__dirname, '../frontend')));
+
+// Página inicial
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend/index.html'));
 });
 
-const PORT = 3000;
-
-app.listen(PORT, () => {
-    console.log(`Servidor rodando em http://localhost:${PORT}`);
+app.listen(3000, () => {
+    console.log('Servidor rodando em http://localhost:3000');
 });
