@@ -7,7 +7,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Cadastro</title>
+<title>Carrinho</title>
 
 <link rel="stylesheet" href="css/style.css">
 
@@ -15,65 +15,47 @@
 
 <body>
 
-<div class="auth-container">
+<header class="header">
 
-<div class="auth-card">
+<h1>Meu Carrinho</h1>
 
-<h1>Cadastro</h1>
+<nav class="navbar">
 
-<p>Crie sua conta.</p>
+<a href="index.html">Início</a>
 
-<form id="formCadastro">
+<a href="produtos.html">Produtos</a>
 
-<input
-type="text"
-id="nome"
-placeholder="Nome Completo"
-required>
+<a href="login.html">Login</a>
 
-<input
-type="email"
-id="email"
-placeholder="E-mail"
-required>
+</nav>
 
-<input
-type="text"
-id="login"
-placeholder="Login"
-required>
+</header>
 
-<input
-type="password"
-id="senha"
-placeholder="Senha"
-required>
+<section class="container">
 
-<button type="submit">
+<div id="carrinho" class="lista-produtos">
 
-Cadastrar
+</div>
+
+<div class="total-box">
+
+<h2 id="total">
+
+Total: R$ 0,00
+
+</h2>
+
+<button class="btn-finalizar">
+
+Finalizar Compra
 
 </button>
 
-</form>
-
-<p>
-
-Já possui conta?
-
-<a href="login.html">
-
-Entrar
-
-</a>
-
-</p>
-
 </div>
 
-</div>
+</section>
 
-<script type="module" src="js/cadastro.js"></script>
+<script type="module" src="js/carrinho.js"></script>
 
 </body>
 
