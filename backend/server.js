@@ -4,7 +4,7 @@ import cors from "cors";
 import produtoRoutes from "./routes/produtoRoutes.js";
 import clienteRoutes from "./routes/clienteRoutes.js";
 import categoriaRoutes from "./routes/categoriaRoutes.js";
-import funcionarioRoutes from "./routes/funcionarioRoutes.js";
+import funcionariosRoutes from "./routes/funcionarioRoutes.js";
 import lojaRoutes from "./routes/lojaRoutes.js";
 import vendaRoutes from "./routes/vendaRoutes.js";
 import loginRoutes from "./routes/loginRoutes.js";
