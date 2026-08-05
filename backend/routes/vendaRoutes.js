@@ -1,9 +1,6 @@
 import express from "express";
 
-import {
-    listarVendas,
-    criarVenda
-} from "../controllers/vendaController.js";
+import { listarVendas, criarVenda } from "../controllers/vendaController.js";
 
 const router = express.Router();
 
